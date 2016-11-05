@@ -166,6 +166,7 @@ public class MyApplication {
                 err.printStackTrace();
             }
         }
+        cnt.zoom(cnt.getCameraPosition(), 10);
 
 
         hi.show();

@@ -154,16 +154,19 @@ public class MyApplication {
 
         //cnt.setShowMyLocation(true);
         Location position = LocationManager.getLocationManager().getCurrentLocationSync();
-        //position.getLatitude();
-        Coord c = new Coord(position.getLatitude(), position.getLongitude());
-        cnt.setCameraPosition(c);
 
-        try {
-            cnt.addMarker(EncodedImage.create("/maps-pin.png"), c, "Marker At", "Latddd ", null);
-        } catch (IOException err) {
-            // since the image is iin the jar this is unlikely
-            err.printStackTrace();
+        if (position != null) {
+            Coord c = new Coord(position.getLatitude(), position.getLongitude());
+            cnt.setCameraPosition(c);
+
+            try {
+                cnt.addMarker(EncodedImage.create("/maps-pin.png"), c, "Marker At", "Latddd ", null);
+            } catch (IOException err) {
+                // since the image is iin the jar this is unlikely
+                err.printStackTrace();
+            }
         }
+
 
         hi.show();
     }

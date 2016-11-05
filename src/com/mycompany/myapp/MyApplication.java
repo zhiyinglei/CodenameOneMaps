@@ -151,8 +151,24 @@ public class MyApplication {
                 cnt.clearMapLayers();
             }
         });
+        
+        hi.addCommand(new Command("Current Position") {
+            public void actionPerformed(ActionEvent ev) {
+                setCurrentPosition(cnt);
+            }
+        });        
+        
+        
+        // set camera to the current position
+        setCurrentPosition(cnt);
 
-        //cnt.setShowMyLocation(true);
+        cnt.zoom(cnt.getCameraPosition(), 10);
+
+        //cnt.add("ss");
+        hi.show();
+    }
+
+    private void setCurrentPosition(MapContainer cnt) {
         Location position = LocationManager.getLocationManager().getCurrentLocationSync();
 
         if (position != null) {
@@ -166,10 +182,6 @@ public class MyApplication {
                 err.printStackTrace();
             }
         }
-        cnt.zoom(cnt.getCameraPosition(), 10);
-
-
-        hi.show();
     }
 
     public void stop() {

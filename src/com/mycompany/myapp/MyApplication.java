@@ -28,7 +28,7 @@ import java.io.IOException;
  */
 public class MyApplication {
 
-    private Form current;
+    private Form current, hi;
     //private Resources theme;
 
     public void init(Object context) {
@@ -63,7 +63,7 @@ public class MyApplication {
             current.show();
             return;
         }
-        Form hi = new Form("Native Maps Test!!");
+        hi = new Form("Native Maps Test!!");
         hi.setLayout(new BorderLayout());
         final MapContainer cnt = new MapContainer();
         final Label lbl = new Label("Location: ...");
@@ -90,14 +90,7 @@ public class MyApplication {
                 //Dialog.show("Long Tap", "Long tap detected", "OK", null);
 
                 Coord curPosition = cnt.getCoordAtPosition(evt.getX(), evt.getY());
-
-                try {
-                    cnt.addMarker(EncodedImage.create("/maps-pin.png"), curPosition, "Marker At", "Latddd ", null);
-                } catch (IOException err) {
-                    // since the image is iin the jar this is unlikely
-                    err.printStackTrace();
-                }
-
+                setMarker(cnt, curPosition);
             }
         });
         hi.addComponent(BorderLayout.SOUTH, lbl);
@@ -151,14 +144,13 @@ public class MyApplication {
                 cnt.clearMapLayers();
             }
         });
-        
+
         hi.addCommand(new Command("Current Position") {
             public void actionPerformed(ActionEvent ev) {
                 setCurrentPosition(cnt);
             }
-        });        
-        
-        
+        });
+
         // set camera to the current position
         setCurrentPosition(cnt);
 
@@ -174,13 +166,31 @@ public class MyApplication {
         if (position != null) {
             Coord c = new Coord(position.getLatitude(), position.getLongitude());
             cnt.setCameraPosition(c);
+            setMarker(cnt, c);
 
-            try {
-                cnt.addMarker(EncodedImage.create("/maps-pin.png"), c, "Marker At", "Latddd ", null);
-            } catch (IOException err) {
-                // since the image is iin the jar this is unlikely
-                err.printStackTrace();
-            }
+        }
+    }
+
+    public void setMarker(MapContainer cnt, Coord c) {
+        try {
+            cnt.addMarker(EncodedImage.create("/maps-pin.png"), c, "Marker At", "Latddd ", new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+//                        Dialog.show("Marker Clicked!", "You clicked the marker", "OK", null);
+                    Chat chatForm = new Chat();
+
+                    Command back = new Command("Back") {
+                        public void actionPerformed(ActionEvent ev) {
+                            hi.showBack();
+                        }
+                    };
+
+                    chatForm.setBackCommand(back);
+                    chatForm.show();
+                }
+            });
+        } catch (IOException err) {
+            // since the image is iin the jar this is unlikely
+            err.printStackTrace();
         }
     }
 

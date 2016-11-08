@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" layout="BoxLayout" boxLayoutAxis="Y"  title="Chat" name="Chat">
+  <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  scrollableY="true" name="Container_Chat_Lists">
+    <component type="Label" name="Label_1_1">
+    </component>
+  </component>
+  <component type="Container" layout="BoxLayout" boxLayoutAxis="Y"  name="Container_1">
+    <component type="TextField" hint="say something" name="Text_Field_1_1">
+    </component>
+    <component type="Button" text="Chat" name="Button_Chat" actionEvent="true">
+    </component>
+  </component>
+</component>

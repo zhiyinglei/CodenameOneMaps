@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="ChatForm" cloudDestinationProperty="ChatForm" layout="FlowLayout" flowLayoutFillRows="false" flowLayoutAlign="4" flowLayoutValign="0" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" layout="FlowLayout" flowLayoutFillRows="false" flowLayoutAlign="4" flowLayoutValign="0" >
+    <component type="TextArea" name="TextArea" cloudBoundProperty="text" cloudDestinationProperty="TextArea" uiid="TextAreaChatArea" text="TextArea" columns="40" rows="30" >
+    </component>
+    <component type="Button" name="Button" cloudDestinationProperty="Button" text="Button" >
+    </component>
+  </component>
+</component>

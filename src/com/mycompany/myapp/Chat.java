@@ -27,7 +27,7 @@ public class Chat extends com.codename1.ui.Form {
 //-- DON'T EDIT BELOW THIS LINE!!!
     private com.codename1.ui.Container gui_Container_Chat_Lists = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
     private com.codename1.ui.Label gui_Label_1_1 = new com.codename1.ui.Label();
-    private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
+    private com.codename1.ui.Container gui_Container_1 = new com.codename1.ui.Container(new com.codename1.ui.layouts.FlowLayout());
     private com.codename1.ui.TextField gui_Text_Field_1_1 = new com.codename1.ui.TextField();
     private com.codename1.ui.Button gui_Button_Chat = new com.codename1.ui.Button();
 
@@ -63,15 +63,15 @@ public class Chat extends com.codename1.ui.Form {
     }
     private void initGuiBuilderComponents(com.codename1.ui.util.Resources resourceObjectInstance) {
         guiBuilderBindComponentListeners();
-        setLayout(new com.codename1.ui.layouts.BoxLayout(com.codename1.ui.layouts.BoxLayout.Y_AXIS));
+        setLayout(new com.codename1.ui.layouts.BorderLayout());
         setTitle("Chat");
         setName("Chat");
-        addComponent(gui_Container_Chat_Lists);
-        gui_Container_Chat_Lists.setScrollableY(true);
+        addComponent(com.codename1.ui.layouts.BorderLayout.NORTH, gui_Container_Chat_Lists);
+        gui_Container_Chat_Lists.setScrollableY(false);
         gui_Container_Chat_Lists.setName("Container_Chat_Lists");
         gui_Container_Chat_Lists.addComponent(gui_Label_1_1);
         gui_Label_1_1.setName("Label_1_1");
-        addComponent(gui_Container_1);
+        addComponent(com.codename1.ui.layouts.BorderLayout.SOUTH, gui_Container_1);
         gui_Container_1.setName("Container_1");
         gui_Container_1.addComponent(gui_Text_Field_1_1);
         gui_Container_1.addComponent(gui_Button_Chat);
@@ -79,7 +79,7 @@ public class Chat extends com.codename1.ui.Form {
         gui_Text_Field_1_1.setName("Text_Field_1_1");
         gui_Button_Chat.setText("Chat");
         gui_Button_Chat.setName("Button_Chat");
-        gui_Container_Chat_Lists.setScrollableY(true);
+        gui_Container_Chat_Lists.setScrollableY(false);
         gui_Container_Chat_Lists.setName("Container_Chat_Lists");
         gui_Container_1.setName("Container_1");
     }// </editor-fold>
@@ -117,8 +117,6 @@ public class Chat extends com.codename1.ui.Form {
     }
     
     
-     public void start() {
-         Dialog.show(" Tap", "  tap detected", "OK", null);
-     }
+
 
 }

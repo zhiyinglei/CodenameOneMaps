@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="7" useXmlUI="false">
-    <ui name="ChatForm" />
     <theme name="Theme">
         <val key="@includeNativeBool" value="true" />
     </theme>

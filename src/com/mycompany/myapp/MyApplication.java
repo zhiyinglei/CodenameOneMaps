@@ -176,7 +176,7 @@ public class MyApplication {
             cnt.addMarker(EncodedImage.create("/maps-pin.png"), c, "Marker At", "Latddd ", new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
 //                        Dialog.show("Marker Clicked!", "You clicked the marker", "OK", null);
-                    Chat chatForm = new Chat();
+                    ChatForm chatForm = new ChatForm();
 
                     Command back = new Command("Back") {
                         public void actionPerformed(ActionEvent ev) {

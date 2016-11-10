@@ -19,7 +19,7 @@ public class Chat extends com.codename1.ui.Form {
     public Chat() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
-    
+
     public Chat(com.codename1.ui.util.Resources resourceObjectInstance) {
         initGuiBuilderComponents(resourceObjectInstance);
     }
@@ -86,37 +86,38 @@ public class Chat extends com.codename1.ui.Form {
 
 //-- DON'T EDIT ABOVE THIS LINE!!!
     public void onActionEvent(com.codename1.ui.events.ActionEvent ev) {
+
+    }
+
+    private void additionSetup() {
         int height = this.getBounds().getHeight();
         gui_Container_Chat_Lists.setHeight(200);
-        gui_Container_Chat_Lists.setScrollSize(new Dimension(200,200));
+        gui_Container_Chat_Lists.setScrollSize(new Dimension(200, 200));
         Dimension d;
-        
-        
+
         //gui_Container_Chat_Lists.setScrollSize();
     }
 
     public void onButton_ChatActionEvent(com.codename1.ui.events.ActionEvent ev) {
-        
-        
+
         // append chat records 
         String chatContent = gui_Text_Field_1_1.getText();
-        
-        if (chatContent.trim().equals("")) return;
-        
-        Label l = new Label(chatContent);        
+
+        if (chatContent.trim().equals("")) {
+            return;
+        }
+
+        Label l = new Label(chatContent);
         gui_Container_Chat_Lists.add(l);
         l.setAlignment(RIGHT);
-        
+
         // respond
         gui_Container_Chat_Lists.add(new Label("hello world"));
         // clear text field
         gui_Text_Field_1_1.setText("");
-        
+
         // repaint screen
         this.repaint();
     }
-    
-    
-
 
 }
